@@ -1,0 +1,25 @@
+<div class="sign-in-container">
+  <div class="sign-in-form">
+    <h2 class="sign-in-form-title">Sign in</h2>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |form| %>
+      <div class="sign-in-form-field">
+        <%= form.label :email %>
+        <%= form.text_field :email, placeholder: "Email", class: "sign-in-form-input" %>
+      </div>
+      <div class="sign-in-form-field">
+        <%= form.label :password %>
+        <%= form.password_field :password, placeholder: "Password", class: "sign-in-form-input" %>
+      </div>
+      <div class="sign-in-form-field">
+        <%= form.check_box :remember_me %>
+        <%= form.label :remember_me, "Remember me" %>
+      </div>
+      <div class="sign-in-form-actions">
+        <%= form.submit "Sign in", class: "sign-in-form-submit w-100" %>
+        <div class="d-flex">
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
