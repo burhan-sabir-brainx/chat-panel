@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>ChatPanel</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>ChatPanel</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+</head>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-  </head>
-
-  <body>
-  <% if notice %>
-    <p class="alert alert-success"><%= notice %></p>
+<body>
+<header>
+  <% if user_signed_in? %>
+    <%= render "shared/header" %>
   <% end %>
-  <% if alert %>
-    <p class="alert alert-danger"><%= alert %></p>
-  <% end %>
-    <%= yield %>
-  </body>
+</header>
+<main>
+  <%= render "shared/flash_message" %>
+  <%= yield %>
+</main>
+</body>
 </html>

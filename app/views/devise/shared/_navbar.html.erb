@@ -1,0 +1,11 @@
+<nav class="navbar site-navbar navbar-light">
+  <div class="container">
+    <%= image_tag "chat.jpg" %>
+    <div class="nav-links d-flex align-items-center justify-content-evenly">
+      <%# if user_signed_in? %>
+        <%= link_to "#{current_user.firstname}", edit_user_registration_path %>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete , class: "btn btn btn-outline-secondary px-3 " %>
+      <%# end %>
+    </div>
+  </div>
+</nav>
